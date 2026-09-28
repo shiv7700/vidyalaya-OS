@@ -49,7 +49,7 @@ variables (see `.env.example`):
 
 | Variable | Example | Used for |
 |---|---|---|
-| `NEXT_PUBLIC_SITE_URL` | `https://vidyalaya-os.vercel.app` | Canonical links, sitemap, share images |
+| `NEXT_PUBLIC_SITE_URL` | `https://vidyalaya-os.vercel.app` | Canonical links, sitemap, share images (defaults to the Vercel production URL) |
 | `NEXT_PUBLIC_APP_URL` | `https://app.example.in` | The "Log in" links |
 | `API_URL` | `https://api.example.in/api` | "Book a demo" posts here (server-side) |
 

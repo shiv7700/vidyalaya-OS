@@ -6,7 +6,10 @@ export const site = {
   description:
     'Vidyalaya OS is school management software for Indian schools: attendance, fees and receipts, exams and report cards, timetable, homework, parent app, library, transport, hostel and more — in one place.',
   // Where this site and the app live (set per environment).
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3001',
+  // On Vercel, falls back to the project's production URL if not set.
+  url:
+    process.env.NEXT_PUBLIC_SITE_URL ??
+    (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : 'http://localhost:3001'),
   appUrl: process.env.NEXT_PUBLIC_APP_URL ?? 'http://localhost:5174',
   locale: 'en_IN',
   company: {
