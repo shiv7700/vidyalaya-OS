@@ -1,0 +1,81 @@
+You don't have to add students one by one. Put a section's students in a spreadsheet, save it as a CSV file, and import it. You can create parent logins in the same step.
+
+## Who can import
+
+- **School admin:** **Students** → **Import from CSV**. You pick the section to import into.
+- **Class teacher:** **My class** → **Import from CSV**. Students go into your own section.
+
+One file is one section. Import each section separately.
+
+## Step 1: Download the template
+
+In the import window, click **Download the template**. It has these columns:
+
+<table>
+  <thead>
+    <tr><th>Column</th><th>Needed?</th><th>What to put</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>name</td><td>Yes</td><td>The student's full name</td></tr>
+    <tr><td>rollNo</td><td>Yes</td><td>1 to 10 letters or digits, no spaces</td></tr>
+    <tr><td>password</td><td>No</td><td>At least 8 characters. Leave empty and one is made for you</td></tr>
+    <tr><td>parentName</td><td>Only with a mobile</td><td>The parent's name</td></tr>
+    <tr><td>parentMobile</td><td>No</td><td>A 10-digit Indian mobile number. This becomes the parent's login</td></tr>
+    <tr><td>relation</td><td>No</td><td>Mother, Father or Guardian</td></tr>
+  </tbody>
+</table>
+
+The first row must hold the column names. Small differences are fine: "Roll No", "roll_no" and "rollNo" all work.
+
+## Step 2: Fill it in Excel
+
+- One student per row.
+- Roll numbers must be different within the file, and not already used in that section.
+- Numbers like "01" and "1" count as the same roll number (roll 1).
+- Leave the password column empty unless you want to set passwords yourself. Generated passwords are easy to read.
+- If a parent already has a login (for example, a sibling is already at the school), use the same mobile number. The existing login is linked to the new child, not duplicated.
+- At most **300 students** in one file. Split bigger files.
+
+## Step 3: Save as CSV
+
+In Excel, choose **File** → **Save As** and pick **CSV UTF-8**. This keeps Hindi and other non-English names correct. In Google Sheets, use **File** → **Download** → **Comma-separated values**.
+
+## Step 4: Import
+
+1. Open **Import from CSV**.
+2. Admins: pick the section under **Into section**.
+3. Choose your CSV file.
+4. The app checks every row straight away. If something is wrong, it lists the problems with their spreadsheet row numbers, for example "Row 7: parent mobile must be 10 digits". Fix them in Excel, save again and choose the file again.
+5. When it says the students are ready, click **Add students**.
+
+The import is all or nothing. If one row fails on the server (say, a roll number that's already taken), no students are added, and you're told which row to fix.
+
+## Step 5: Download the logins
+
+After the import, you see each student's username and password, and the parent login.
+
+1. Click **Download logins** straight away. **Generated passwords are shown only once.**
+2. Share each family's details privately, for example on a printed slip.
+3. Click **Done**.
+
+Everyone chooses their own password the first time they log in.
+
+## What gets created
+
+- A student login for each row. The username is made from your school code, the class and section, and the roll number.
+- A parent login for each new mobile number, linked to the child. An existing parent login is linked instead.
+
+Students can then log in and see their own page. Parents see all their linked children. See [Guide for parents and students](/docs/parents).
+
+## Adding one student at a time
+
+Class teachers can also click **Add student** in **My class**. Enter the name, roll number and a first password (at least 8 characters). The username appears under the roll number as you type. To add a parent, click **Parents** on the student's row. See [A teacher's day](/docs/teachers).
+
+For students joining through the admissions process, use **Admit** on the enquiry instead. See [Admissions](/docs/admissions).
+
+## Common problems
+
+- **"The first row must have the column names"**: your file has no header row, or it's missing "name" or "rollNo". Start from the template.
+- **"Roll no must be 1–10 letters or digits"**: remove spaces, dots and dashes.
+- **"Add the parent's name"**: every row with a parent mobile needs a parent name.
+- **Strange characters in names**: save the file again as **CSV UTF-8**.

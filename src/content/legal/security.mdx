@@ -1,0 +1,87 @@
+import { site } from '@/lib/site'
+
+Schools trust {site.name} with records about children, families and staff. This page describes how the app protects that data today. It lists only measures that are built into the product; if something is not on this page, please do not assume we do it — ask us at {site.company.email}.
+
+## Each school's data is kept separate
+
+- Every record that belongs to a school — students, attendance, marks, fees, everything — carries that school's ID.
+- Every database query filters by the school of the **logged-in user**. The school is taken from the login session, never from what the browser sends, so a user cannot ask for another school's data by changing a request.
+- Asking for a record that belongs to another school gets a "not found" answer, exactly as if it did not exist.
+- Parents can reach only the children linked to their own login, and students only their own records.
+- Automated tests check these rules: another school's records, a wrong role, and a parent opening someone else's child are all refused.
+
+## Role-based access
+
+- Each person has one role: school admin, teacher, student or parent.
+- Every part of the server states which roles may use it, and the server checks this on **every request**. Hiding a button in the screen is never the only protection.
+- The user is looked up again on every request, so turning off an account or changing a role takes effect immediately.
+
+## Logins and passwords
+
+- **Passwords are never stored in readable form.** They are hashed with **scrypt**, a deliberately slow algorithm, using a unique random salt for each password, and compared in constant time.
+- **Account lockout:** after **10 wrong passwords**, an account is locked for **15 minutes**.
+- **Rate limits:** login attempts are limited per network address and login name, and the public admission enquiry and demo request forms are rate-limited and include a hidden field that catches automated spam. All other requests are also rate-limited.
+- **Passwords set by staff** — for a new account or after a reset — must be changed by the person at their next login.
+- Staff log in with their email address, parents with their mobile number, and students with a username given by the school.
+
+## Sessions
+
+- A login creates **one cookie**, which is:
+  - `httpOnly` — scripts on the page cannot read it, which protects it from being stolen through injected code;
+  - `SameSite=Lax` — it is not sent with requests started by other websites;
+  - `Secure` in production — it is sent only over HTTPS.
+- The session token is cryptographically signed, and the server refuses to start in production without a strong signing secret.
+- A session lasts at most 7 days, and **ends immediately** when:
+  - the person logs out (this logs them out on all devices);
+  - their password is changed or reset;
+  - their account is turned off, for example when a teacher or student leaves;
+  - a parent's last linked child is unlinked;
+  - the school's account is paused.
+
+## Security headers
+
+- The server that answers the app's requests sends headers that stop browsers from guessing content types (`X-Content-Type-Options: nosniff`), forbid other sites from framing it (`X-Frame-Options: DENY` and a Content Security Policy with `frame-ancestors 'none'`), send no referrer information, and do not advertise the server software.
+- In production it also tells browsers to use HTTPS only (Strict Transport Security, for one year).
+- This website sends similar headers and blocks access to the camera, microphone and location.
+- The app's server does not allow cross-origin requests, so another website cannot use a visitor's browser to read data from it.
+
+## Every request is checked
+
+- Every request is validated against a strict definition of what it may contain — types, lengths, formats, allowed values. **Unknown fields are rejected**, not ignored.
+- Oversized requests are rejected.
+- Text that people type, such as notices and notes, is always shown as text: HTML or scripts typed into a form are never run.
+- Error messages do not reveal internal details of the system.
+
+## Money and records stay correct
+
+- Amounts are stored as whole paise, so there are no rounding errors in fee totals.
+- **A fee receipt can be voided, but never deleted.** Voiding records the reason, who voided it and when; the receipt number stays used and the receipt shows as VOID. A fee bill that has payments cannot be removed.
+- **No double payments:** while a payment is being checked and saved, that fee is locked in the database, so two payments recorded at the same moment cannot both pass the balance check. A payment can never exceed what is due.
+- The same kind of locking stops a library lending more copies than it has, a hostel room going over capacity, and an enquiry being admitted twice.
+- Receipt and certificate numbers are unique within each school, enforced by the database.
+- The app records who marked attendance, entered marks, collected or voided a payment, issued a book and issued a certificate. (This is not a full audit log of every change.)
+
+## Dependencies
+
+We check the software libraries the app depends on for known vulnerabilities (`pnpm audit`) and update or patch them. At our last check, in September 2026, no known vulnerabilities were reported in the app's production dependencies.
+
+## Hosting, encryption at rest and backups
+
+Data is stored at {site.hosting}. Encryption of stored data and backups depend on that hosting set-up; contact us at {site.company.email} for the current details.
+
+## What schools can do
+
+- Give each person their own login, and never share passwords.
+- Turn off the accounts of staff and students who leave — the app ends their sessions at once.
+- Reset a password straight away if you think it is known to someone else.
+- Record only what you need, especially in free-text notes and remarks.
+
+## Reporting a vulnerability
+
+If you believe you have found a security problem in {site.name}, please email **{site.company.email}** with the details and steps to reproduce it. Please:
+
+- do not access, change or delete data that is not yours, beyond the minimum needed to show the problem;
+- do not disrupt the service or run automated scans against it;
+- give us reasonable time to fix the issue before sharing it publicly.
+
+We will acknowledge your report, keep you informed, and credit you if you wish. See also our [Privacy policy](/privacy).

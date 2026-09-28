@@ -1,0 +1,142 @@
+import { site } from '@/lib/site'
+
+> This document is a template prepared for review by a lawyer before launch.
+
+This policy explains what personal data {site.name} handles, why, and what rights you have. It is written for India's Digital Personal Data Protection Act, 2023 (the **DPDP Act**) and the Information Technology Act, 2000.
+
+## Who we are
+
+{site.name} is a school management web app operated by {site.company.legalName}, with its registered office at {site.company.address} ("we", "us"). You can reach us at {site.company.email}.
+
+## Our role: school data and website data
+
+The DPDP Act separates the **Data Fiduciary**, who decides why and how personal data is used, from the **Data Processor**, who handles it on the fiduciary's behalf.
+
+- **Data a school enters into {site.name}** — about its students, parents and staff. The **school is the Data Fiduciary**. We are its **Data Processor**: we store and process that data only to run the service for the school, on its instructions and under our agreement with it. If you are a student, parent or staff member, your school decides what is recorded about you.
+- **Data you give us directly** — when you visit this website, book a demo, or a school signs up with us. Here **we are the Data Fiduciary**.
+
+## What data the app stores
+
+The list below reflects the data fields the app actually has. A school uses only the modules it needs, so it may hold less than this.
+
+### Accounts and login
+
+- **Everyone who logs in:** name, role (school admin, teacher, student or parent), and whether the account is active.
+- **Staff:** email address, used to log in.
+- **Students:** a username made by the school (for example, from the school code, section and roll number).
+- **Parents:** mobile number, used as the parent's username.
+- **Passwords:** stored only as a one-way hash (see "Security measures" below), never in readable form.
+- **Login safety data:** a count of recent wrong passwords, a temporary lock time if the account is locked, and a session version number used to end old sessions.
+
+### School records
+
+- **School:** name, short code, address, phone number and email (printed as a letterhead on receipts, report cards and certificates).
+- **Students:** name, class and section, roll number, the parents or guardians linked to them and their relation (mother, father, guardian), and — if the student leaves — the date and reason.
+- **Admissions enquiries:** the child's name and date of birth, the class applied for, the parent's name, mobile number and email, where the enquiry came from, its status, follow-up dates and the school's notes. Enquiries can come through the school's public enquiry form.
+- **Attendance:** each student's daily status (present, late, absent or on leave), who marked it, and the school's holiday list.
+- **Exams and report cards:** marks per subject (or absent), maximum marks, and the class teacher's remarks. Grades, totals and ranks are calculated from these.
+- **Fees:** fee bills (name, academic session, amount, due date), concessions and the reason given, and payments (amount, method such as cash or UPI, date, receipt number and note). A payment entered by mistake is marked void with a reason; it is not deleted.
+- **Timetable, homework and notices:** bell timings, weekly timetables, homework (subject, details, due date) and notices posted in the app.
+- **Library:** books in the catalogue and loans — who borrowed which book, and when it was issued, due and returned.
+- **Transport:** routes, vehicle numbers, driver names and phone numbers, stops and pickup times, and which student boards at which stop.
+- **Hostel:** hostels, warden names and phone numbers, rooms, and which student lives in which room since when.
+- **Certificates:** bonafide and transfer certificates issued to a student, with serial number, date, purpose, and for a transfer certificate the reason for leaving and a conduct remark.
+- **Staff leave and payroll:** leave applications (type, dates, reason, decision), monthly pay (basic and allowances) and payslips (unpaid days, deductions, net pay, date paid).
+- **Who did what:** the app records which user marked attendance, entered marks, collected or voided a payment, issued a book, set homework, posted a notice or issued a certificate.
+
+Several of these are free-text fields (notes, remarks, reasons). Whatever a school types there is stored as entered, so schools should not record more than they need.
+
+**What the app does not store today:** photos, uploaded documents, Aadhaar numbers, home addresses of students, or card or bank details. The app does not take online payments; school staff record payments they have received.
+
+### Demo requests from this website
+
+When you fill in the "Book a demo" form we store: school name, your name, your role, phone number, email (optional), city, the approximate number of students, and your message.
+
+### Technical data
+
+- The app sets **one cookie**, named `session`, when you log in. It is `httpOnly` (web pages cannot read it), lasts up to 7 days, and is removed when you log out. It is needed for login to work.
+- The app keeps two preferences in your browser's local storage: your light/dark theme and which menu groups you have collapsed. They stay on your device.
+- Our servers use your IP address briefly, in memory, to apply rate limits against abuse. Our hosting set-up may also keep standard server logs.
+- **No tracking.** Neither the app nor this website uses advertising cookies, analytics tools, tracking pixels or third-party scripts. This website currently has no analytics at all.
+
+## Why we use it
+
+<table>
+  <thead>
+    <tr><th>Purpose</th><th>Data used</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Running the service for a school: logins, attendance, fees, exams, and every other module the school uses</td><td>School data listed above</td></tr>
+    <tr><td>Keeping accounts secure: sessions, lockouts, rate limits</td><td>Login safety data, session cookie, IP address</td></tr>
+    <tr><td>Support, when a school asks us for help</td><td>The data needed to resolve that request</td></tr>
+    <tr><td>Replying to demo requests and sales follow-up</td><td>Demo request data</td></tr>
+    <tr><td>Billing schools and meeting legal obligations such as tax records</td><td>The school's contact and billing details</td></tr>
+  </tbody>
+</table>
+
+We do not use personal data for advertising, do not sell it, and do not build profiles of students, parents or staff.
+
+## Legal basis
+
+- **School data:** the school, as Data Fiduciary, is responsible for having a lawful ground under the DPDP Act — the consent of the person, or a legitimate use permitted by section 7 — and for giving the notice the Act requires. We process this data only on the school's instructions.
+- **Children's data:** under the DPDP Act, anyone under 18 is a child. Section 9 requires the school to obtain **verifiable consent from a parent or lawful guardian** before processing a child's personal data, except where the DPDP Rules provide an exemption. We help schools meet section 9: the app does not track children across other sites, does not monitor their behaviour for any purpose beyond the school's own records, and shows no advertising of any kind.
+- **Demo requests:** you give this data to us voluntarily so we can contact you, and we use it only for that (section 7(a)). You can ask us to delete it at any time.
+
+## Sharing
+
+- **We do not sell personal data** and do not share it for advertising.
+- **Within a school:** people see only what their role allows. For example, a parent sees only their own linked children, and one school can never see another school's data.
+- **Sub-processors:** the app and its database are hosted by {site.hosting}. We will list any new sub-processor on this page before using it.
+- **Legal requirements:** we may disclose data when Indian law, a court or a government authority lawfully requires it. Where we are allowed to, we will tell the affected school first.
+
+## Where data is stored
+
+Data is stored at {site.hosting}. If this ever changes to a location outside India, we will update this policy and inform schools in advance, and we will follow any restrictions made under section 16 of the DPDP Act.
+
+## How long we keep it
+
+- **School data** is kept for as long as the school's subscription is active. After a subscription ends, **our policy** is to keep the data for **90 days** so the school can export it, and then delete it. A school can ask us to delete it sooner. Where backups exist, copies are removed as those backups expire in their normal cycle.
+- Within a subscription, the school decides what to keep or remove. Schools have their own legal duties to keep some records (for example, fee receipts), and the app is designed so that such records are not lost by accident: a wrong payment is voided, not deleted.
+- **Demo requests** are kept as long as needed to reply and follow up, and deleted on request.
+- **Our billing records** with schools are kept for as long as tax laws require.
+
+## Security measures
+
+We protect data with, among other things: strict separation of each school's data, role-based access, passwords stored only as salted scrypt hashes, an `httpOnly` session cookie, account lockout after repeated wrong passwords, rate limits and validation of every request. The [Security page](/security) describes these in detail.
+
+If a personal data breach happens, we will inform the affected school without undue delay and give it the information it needs to inform the Data Protection Board of India and the people affected, as the DPDP Act requires.
+
+## Your rights
+
+Under the DPDP Act you have the right to:
+
+- **Access** — a summary of your personal data and how it is processed (section 11).
+- **Correction and erasure** — have inaccurate or incomplete data corrected or updated, and data erased when it is no longer needed, unless the law requires it to be kept (section 12).
+- **Grievance redressal** — have your complaint handled (section 13).
+- **Nomination** — nominate a person to exercise your rights if you die or become unable to (section 14).
+- **Withdraw consent** — where processing is based on your consent, you can withdraw it as easily as you gave it. Withdrawal does not affect processing done before it.
+
+### How to exercise them
+
+- **For data your school holds** (you are a student, parent or staff member): contact your **school first**. The school controls this data and can correct most of it directly in the app. If you write to us instead, we will pass your request to the school and help it respond.
+- **For data we hold as fiduciary** (demo requests, school contacts): write to our Grievance Officer below.
+
+We may need to confirm your identity before acting on a request.
+
+## Children
+
+Most students who use {site.name} are under 18. Their accounts are created by their school, not by the children themselves, and the school is responsible for parental consent. Parents can see their own children's records through the parent login. We do not knowingly collect children's data other than on a school's instructions. If you believe a child's data is in the app without proper consent, contact the school or our Grievance Officer.
+
+## Changes to this policy
+
+We may update this policy as the product or the law changes. The "Last updated" date at the top shows the latest version. For significant changes, we will also inform subscribing schools by email before the change takes effect.
+
+## Contact and Grievance Officer
+
+- Grievance Officer: {site.company.grievanceOfficer}
+- Email: {site.company.grievanceEmail}
+- Postal address: {site.company.legalName}, {site.company.address}
+
+We will acknowledge your complaint and respond within the time set by the DPDP Rules.
+
+If you are not satisfied with how your grievance was handled, you may complain to the **Data Protection Board of India** after using the grievance process above, as section 13 of the DPDP Act requires.

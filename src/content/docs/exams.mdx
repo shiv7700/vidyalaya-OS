@@ -1,0 +1,92 @@
+The school admin creates exams. Teachers enter marks, one subject at a time. Vidyalaya OS works out totals, percentages, grades, pass or fail and ranks, and makes a printable report card for every student.
+
+## 1. Create an exam (school admin)
+
+1. Go to **Exams** (under Academics) and click **Add exam**.
+2. Type the **Exam name**, for example "Half-yearly 2026" or "Unit Test 1".
+3. Optionally pick **Starts on**. This date decides which school year (April to March) the exam belongs to. Without a date, it goes into the current year.
+4. Click **Add exam**.
+
+Exam names must be different within a school year, so you can use "Half-yearly" again next year. Use **Edit** to rename or re-date an exam. **Remove** works only while no marks have been entered.
+
+## 2. Enter marks (teachers)
+
+Who can enter marks:
+
+- the **class teacher**, for any subject of their own section
+- a **subject teacher**, for the subjects the timetable gives them in any section
+
+The admin doesn't enter marks.
+
+1. Click **Marks** in the sidebar.
+2. Pick the **Exam** and the **Subject** (shown with its section, like "6-A · Maths").
+3. Set **Max marks** for this subject in this exam (1 to 1000).
+4. Type each student's marks. Half marks are allowed, like 42.5.
+5. Tick **Absent** for a student who missed the paper. They show as **AB**.
+6. Click **Save marks**.
+
+Rows you leave blank are skipped, so you can enter marks in more than one sitting. The page warns you if you try to leave with unsaved marks.
+
+A mark can't be more than the max marks. If you lower the max marks below a mark that's already saved, the app refuses and tells you which mark is too high.
+
+If the Subject list is empty, your section has no subjects yet (the class teacher adds them under **My class**), or you're not on the timetable for any subject.
+
+## 3. See results
+
+- **School admin:** **Exams** → **Results** on an exam, then pick a **Section**.
+- **Class teacher:** **Results** in the sidebar, then open an exam to see your class.
+
+The results table shows each student's rank, marks per subject, total, percentage, grade and result. At the top: how many students have marks, how many passed, the class average and the topper.
+
+### How results are worked out
+
+- **Percentage** is the total of all entered subjects out of their total max marks.
+- **Pass or fail:** a student fails if they get below **33% in any subject**. AB counts as zero.
+- **Rank** is by percentage. Students with the same percentage share a rank, and the next rank is skipped (90%, 80%, 80%, 70% gives ranks 1, 2, 2, 4).
+- **Grade** follows the CBSE-style scale below, based on the overall percentage.
+
+<table>
+  <thead>
+    <tr><th>Grade</th><th>Percentage</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>A1</td><td>91 to 100</td></tr>
+    <tr><td>A2</td><td>81 to 90</td></tr>
+    <tr><td>B1</td><td>71 to 80</td></tr>
+    <tr><td>B2</td><td>61 to 70</td></tr>
+    <tr><td>C1</td><td>51 to 60</td></tr>
+    <tr><td>C2</td><td>41 to 50</td></tr>
+    <tr><td>D</td><td>33 to 40</td></tr>
+    <tr><td>E</td><td>Below 33</td></tr>
+  </tbody>
+</table>
+
+## 4. Add remarks
+
+In the results table, click **Add remark** (or **Edit remark**) for a student. Type a short comment, up to 500 characters, and click **Save**. It's printed on the report card under "Class teacher's remarks". The class teacher or the school admin can add remarks. Save an empty remark to remove it.
+
+## 5. Print report cards
+
+Click **Report card** on a student's row (it appears once the student has marks). Then click **Print**.
+
+The report card has:
+
+- your school's letterhead, the exam name and date
+- the student's name, class, roll number and class teacher
+- every subject of the section, with marks such as "18/25", "AB", or "Not entered"
+- total, percentage, grade, rank (for example "3 of 40"), attendance and result
+- the class teacher's remarks
+- signature lines for the class teacher, principal and parent
+- the grade scale, printed at the bottom
+
+Report cards fit one A4 page. To keep a copy, choose "Save as PDF" in the print window.
+
+## What students and parents see
+
+Students and parents open the **Results** tab on the student's page. It lists every exam the student has marks in, with a **View** link to the same report card, which they can print. See [Guide for parents and students](/docs/parents).
+
+## Tips
+
+- Create exams before teachers need them; teachers can't create exams themselves.
+- Make sure subject teachers are on the timetable before marks entry starts.
+- Agree on max marks per subject in advance, so all sections of a class match.

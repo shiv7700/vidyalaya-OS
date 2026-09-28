@@ -1,0 +1,78 @@
+@import "tailwindcss";
+@import "../styles/tokens.css";
+
+/* Inter comes from next/font (layout.tsx) instead of the app's @fontsource. */
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-surface text-default font-sans antialiased;
+  }
+  * {
+    @apply border-default;
+  }
+  p, h1, h2, h3, li, dd, td, th, a {
+    overflow-wrap: anywhere;
+  }
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-focused;
+  }
+}
+
+/* Long-form text: docs, blog posts, legal pages. */
+@layer components {
+  .prose {
+    @apply max-w-none leading-7 text-default;
+  }
+  .prose > * + * {
+    @apply mt-4;
+  }
+  .prose h1 {
+    @apply text-3xl font-semibold tracking-tight;
+  }
+  .prose h2 {
+    @apply mt-10 scroll-mt-24 text-xl font-semibold;
+  }
+  .prose h3 {
+    @apply mt-8 scroll-mt-24 font-semibold;
+  }
+  .prose p,
+  .prose li {
+    @apply text-default;
+  }
+  .prose a {
+    @apply text-brand underline underline-offset-2;
+  }
+  .prose ul {
+    @apply list-disc pl-6;
+  }
+  .prose ol {
+    @apply list-decimal pl-6;
+  }
+  .prose li + li {
+    @apply mt-1.5;
+  }
+  .prose strong {
+    @apply font-semibold;
+  }
+  .prose code {
+    @apply rounded bg-neutral px-1 py-0.5 text-[0.9em];
+  }
+  .prose blockquote {
+    @apply border-l-4 border-bold pl-4 text-subtle;
+  }
+  .prose table {
+    @apply w-full border-collapse text-left text-sm;
+  }
+  .prose th {
+    @apply border-b-2 border-bold py-2 pr-4 font-semibold;
+  }
+  .prose td {
+    @apply border-b py-2 pr-4 align-top;
+  }
+  .prose hr {
+    @apply my-10;
+  }
+}

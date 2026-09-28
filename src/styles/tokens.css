@@ -1,0 +1,92 @@
+/*
+ * Copied from frontend/src/styles/tokens.css — keep the two in step.
+ * Design tokens — Atlassian-style semantic names, Notion-inspired values.
+ * Each token is light-dark(<light>, <dark>); the theme follows the OS unless
+ * <html data-theme="light|dark"> overrides it. Components use only the
+ * generated classes (bg-*, text-*, border-*), never raw colors or dark:.
+ *
+ * Values marked (tune) are starting points, not taken from research —
+ * adjust them by eye. Text colours are set to meet WCAG AA (4.5:1) on every
+ * surface, neutral hover and matching badge background, in both themes:
+ * keep that when tuning.
+ */
+
+@theme static {
+  --color-*: initial;
+
+  /* Surfaces — page, sidebar, cards, modals */
+  --ds-background-surface: light-dark(#ffffff, #191919);
+  --ds-background-surface-sunken: light-dark(#f7f6f3, #202020);
+  --ds-background-surface-raised: light-dark(#ffffff, #252525);
+  --ds-background-surface-overlay: light-dark(#ffffff, #2f2f2f); /* (tune) */
+
+  /* Neutral — secondary buttons, hover rows */
+  --ds-background-neutral: light-dark(rgb(55 53 47 / 0.06), rgb(255 255 255 / 0.055));
+  --ds-background-neutral-hovered: light-dark(rgb(55 53 47 / 0.1), rgb(255 255 255 / 0.09));
+  --ds-background-neutral-pressed: light-dark(rgb(55 53 47 / 0.16), rgb(255 255 255 / 0.13));
+  --ds-background-input: light-dark(#ffffff, rgb(255 255 255 / 0.055));
+  --ds-background-selected: light-dark(rgb(35 131 226 / 0.1), rgb(35 131 226 / 0.2)); /* (tune) */
+  --ds-background-blanket: light-dark(rgb(15 15 15 / 0.4), rgb(0 0 0 / 0.6)); /* behind dialogs (tune) */
+
+  /* Brand — primary buttons */
+  --ds-background-brand-bold: #1f6fc5; /* white text 5:1 */
+  --ds-background-brand-bold-hovered: #1a5fae;
+
+  /* Status — badges (present / absent / …) */
+  --ds-background-success: light-dark(#eef3ed, #243d30); /* dark (tune) */
+  --ds-background-danger: light-dark(#faecec, #522e2a); /* dark (tune) */
+  --ds-background-warning: light-dark(#faf3dd, #564328); /* dark (tune) */
+  --ds-background-information: light-dark(#e9f3f7, #143a4e); /* dark (tune) */
+  --ds-background-danger-bold: #c4403b; /* white text 5:1 */
+
+  /* Text */
+  --ds-text-default: light-dark(#37352f, rgb(255 255 255 / 0.81));
+  --ds-text-subtle: light-dark(#5f5e5b, #ababab);
+  --ds-text-subtlest: light-dark(#68655d, #9c9c9c); /* lightest grey that still meets WCAG AA 4.5:1 */
+  --ds-text-disabled: light-dark(rgb(55 53 47 / 0.35), rgb(255 255 255 / 0.28)); /* (tune) */
+  --ds-text-inverse: #ffffff;
+  --ds-text-brand: light-dark(#0464c3, #5ca6d4);
+  --ds-text-success: light-dark(#32714f, #64b084);
+  --ds-text-danger: light-dark(#bb332e, #ff7573);
+  --ds-text-warning: light-dark(#925800, #ddab5c);
+  --ds-text-information: light-dark(#356992, #5ca6d4);
+
+  /* Borders — thin and faint, Notion-style */
+  --ds-border-default: light-dark(rgb(55 53 47 / 0.09), rgb(255 255 255 / 0.094));
+  --ds-border-bold: light-dark(rgb(55 53 47 / 0.16), rgb(255 255 255 / 0.16));
+  --ds-border-input: light-dark(rgb(55 53 47 / 0.16), rgb(255 255 255 / 0.13));
+  --ds-border-focused: #2383e2;
+  --ds-border-danger: light-dark(#d44c47, #df5452); /* (tune) */
+
+  --font-sans: "Inter Variable", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, sans-serif;
+}
+
+@utility bg-* {
+  background-color: --value(--ds-background-*);
+}
+@utility text-* {
+  color: --value(--ds-text-*);
+}
+@utility border-* {
+  border-color: --value(--ds-border-*);
+}
+@utility outline-* {
+  outline-color: --value(--ds-border-*);
+}
+
+:root {
+  color-scheme: light dark;
+}
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+}
+/* Paper is white: print in light whatever the screen theme. */
+@media print {
+  :root,
+  :root[data-theme] {
+    color-scheme: light;
+  }
+}
